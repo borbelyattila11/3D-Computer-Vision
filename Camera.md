@@ -1,36 +1,20 @@
 # Computer Vision: Camera Models and Calibration
 
-This lecture provides a comprehensive overview of geometric camera models, homography, and camera calibration, essential for understanding the principles of computer vision.
+This document comprehensively explains key concepts in computer vision, focusing on geometric camera models, camera calibration methods, and homography. It is structured to discuss models of cameras, calibration techniques, homography transformations, and associated error minimization processes.
 
 ---
 
 ## 1. Camera Models
 
-### Perspective (Pin-Hole) Camera
-The perspective camera model, equivalent to the pin-hole camera, provides a geometric approximation of real optics. It assumes a focal point \( C \) and an image plane \( \phi \), connected by optical rays from 3D scene points.
-
-#### Notations and Transformations
-- World coordinates: \( X = [X, Y, Z]^T \)
-- Camera coordinates: \( X_c = [X_c, Y_c, Z_c]^T \)
-- Image coordinates: \( u = [u, v]^T \)
-
-Transformations between world and camera coordinates include:
+### Perspective Camera
+The **perspective (pin-hole) camera** model approximates a real camera by considering a focal point \( C \) and an image plane \( \phi \). Every point in the scene projects through \( C \) onto \( \phi \).  
+**Projection equations:**
 \[
-X_c = R(X - t)
+u = \frac{f k_u}{Z_c} X_c + u_0, \quad v = \frac{f k_v}{Z_c} Y_c + v_0
 \]
-\[
-X_c = R[I| -t] \begin{bmatrix} X \\ 1 \end{bmatrix}
-\]
+Here, \( f \) is the focal length, \( k_u \) and \( k_v \) are pixel size constants, and \( (u_0, v_0) \) is the principal point.
 
-Projection to image coordinates:
-\[
-u = \frac{f k_u}{Z_c} X_c + u_0
-\]
-\[
-v = \frac{f k_v}{Z_c} Y_c + v_0
-\]
-
-The intrinsic calibration matrix \( K \) is:
+The intrinsic camera matrix \( K \) is:
 \[
 K = \begin{bmatrix}
 f k_u & 0 & u_0 \\
@@ -39,83 +23,113 @@ f k_u & 0 & u_0 \\
 \end{bmatrix}
 \]
 
+### Orthogonal Projection
+In **orthogonal projection**, depth variations are negligible, assuming parallel rays project the 3D scene onto the image plane:
+\[
+u = k X, \quad v = k Y
+\]
+where \( k \) is a scaling factor. Orthogonal projection models do not account for perspective distortion and are less complex.
+
 ### Weak-Perspective Camera
-Assumes the object depth variation is negligible compared to the camera distance. Projection simplifies to scaled orthographic projection:
+The **weak-perspective camera** assumes minimal depth variation across an object, simplifying projection:
 \[
-u = \frac{f k}{\tilde{Z}_c} X_c + u_0
+u = \frac{f k}{\tilde{Z}_c} X_c, \quad v = \frac{f k}{\tilde{Z}_c} Y_c
 \]
-\[
-v = \frac{f k}{\tilde{Z}_c} Y_c + v_0
-\]
-
-Weak-perspective models eliminate scale ambiguity but may sacrifice accuracy.
-
-### Model Comparison
-- **Perspective Projection**: Accurate, with size changes and perspective distortion.
-- **Weak-Perspective Projection**: Approximates real projection; simpler with fewer parameters.
-
-### Back-Projection
-For a 2D image point, the corresponding 3D point is ambiguous due to depth. Back-projection produces a line in 3D space.
+where \( \tilde{Z}_c \) is the average depth. This model reduces complexity but sacrifices accuracy compared to full perspective projection.
 
 ---
 
-## 2. Homography
+## 2. Calibration of Perspective Camera Using a Spatial Object
 
-### Definition
-A homography is a projective transformation between two planes. It maps point correspondences as:
+Calibration aligns the camera’s image with 3D world coordinates by estimating the **projection matrix** \( P \):
 \[
-u' \sim H u
+P = K R [I | -t]
 \]
-where \( H \) is a non-singular matrix.
+where \( K \) is the intrinsic matrix, \( R \) is the rotation, and \( t \) is the translation.
 
-### Estimation
-Linear estimation involves solving:
+### Estimation of Projection Matrix
+Given point correspondences \( X \rightarrow u \), the projection matrix is estimated using:
 \[
-A h = 0
+A p = 0
 \]
-where \( A \) depends on point correspondences and \( h \) represents homography parameters.
-
-For robust estimation, techniques like RANSAC handle outliers.
-
-### Geometric Error Minimization
-Non-linear refinement minimizes:
+where \( p \) represents the flattened matrix \( P \). For over-determined systems, **Singular Value Decomposition (SVD)** minimizes:
 \[
-\sum_i d(u_i', H u_i)^2 + d(u_i, H^{-1} u_i')^2
+\|A p\| \quad \text{subject to} \quad \|p\| = 1
+\]
+
+### Decomposition
+The matrix \( P \) is decomposed using RQ decomposition to separate rotation and intrinsic parameters:
+\[
+t = -R^T K^{-1} p_4
 \]
 
 ---
 
-## 3. Camera Calibration
+## 3. Chessboard-Based Calibration of Perspective Cameras
 
-### Objectives
-Calibration estimates intrinsic parameters (focal length, principal point) and extrinsic parameters (position, orientation).
+Chessboard patterns offer a robust method for calibration using easily detected corner points.
 
-#### Calibration Methods
-1. **Spatial Object Calibration**: Uses a known 3D object (e.g., calibration cube).
-2. **Chessboard Calibration**: Common due to ease of use and software support (e.g., OpenCV).
-
-#### Linear Estimation
-Projection matrix \( P \) is estimated using correspondences:
-\[
-u \sim P X
-\]
-Solving \( Ap = 0 \) yields \( P \), decomposed as \( P = K R [I| -t] \).
-
-#### Chessboard-Based Calibration
-Homography estimation between the chessboard plane and image provides:
+### Intrinsic Parameter Computation
+The homography between the chessboard plane and the image plane:
 \[
 H \sim K [r_1 \ r_2 \ t]
 \]
-where \( r_1, r_2 \) are rotation vectors.
+yields the intrinsic matrix \( K \). Linear constraints on \( H \) provide:
+\[
+S = K^{-T} K^{-1}
+\]
+From multiple images, \( S \) is computed to extract focal lengths and principal point.
 
 ### Radial Distortion
-Radial distortion (barrel or pincushion) affects projection accuracy. It is corrected using:
+Radial distortion bends straight lines into curves, modeled by:
 \[
-u = u_c + L(r) (u - u_c)
+L(r) = 1 + \kappa_1 r^2 + \kappa_2 r^4
 \]
-with \( L(r) = 1 + \kappa_1 r^2 + \kappa_2 r^4 \).
+
+### Tangential Distortion
+Accounts for decentering effects:
+\[
+x' = x + [2 p_1 x y + p_2 (r^2 + 2 x^2)]
+\]
+\[
+y' = y + [p_1 (r^2 + 2 y^2) + 2 p_2 x y]
+\]
 
 ---
 
-## Summary
-This lecture covers essential concepts for geometric modeling, homography, and calibration, forming a foundation for advanced computer vision tasks.
+## 4. Plane-Plane Homography
+
+Homography transforms points between two planes. For points \( X \) and \( X' \):
+\[
+X' \sim H X
+\]
+where \( H \) is a 3x3 transformation matrix. It is used for **rectifying road surfaces** and constructing **panoramic images** by stitching together views:
+\[
+H = K_2 R_2 R_1^T K_1^{-1}
+\]
+
+---
+
+## 5. Estimation of Homography and Data Normalization
+
+### Linear Estimation
+Homography \( H \) is estimated using point correspondences \( u \rightarrow u' \):
+\[
+A h = 0
+\]
+with constraints on \( h \) to prevent trivial solutions. SVD provides a least-squares solution.
+
+### Data Normalization
+Coordinates are normalized by translating the centroid to the origin and scaling to a unit variance, enhancing numerical stability:
+\[
+T = \begin{bmatrix}
+s & 0 & -s \mu_x \\
+0 & s & -s \mu_y \\
+0 & 0 & 1
+\end{bmatrix}
+\]
+Normalized coordinates improve homography estimation accuracy.
+
+---
+
+This document provides a foundational understanding for practical applications like 3D reconstruction, object tracking, and augmented reality.
