@@ -65,6 +65,72 @@ Adjust 3D points and camera parameters to align projected 2D points with observe
 - **Algorithm**: Sparse Levenberg-Marquardt (LM) is used for efficiency in solving large-scale systems.
 - **Jacobian Matrix**: Represents derivatives of the reprojection error with respect to all parameters, exploiting sparsity to reduce computational cost.
 
+
+# Numerical Optimization
+
+## Introduction
+In 3D computer vision and other estimation tasks, many optimization problems lack closed-form solutions. These problems are often tackled using **numerical optimization techniques**, which iteratively minimize the cost function starting from an initial point.
+
+---
+
+## Approximation by Taylor Series
+The cost function \( J(x) \) near \( x_0 \) can be approximated using a Taylor series:
+
+\[
+J(x_0 + \Delta x) = J(x_0) + \nabla J^T(x_0)\Delta x + \frac{1}{2}\Delta x^T H \Delta x + \dots
+\]
+
+- **Gradient** (\( \nabla J(x) \)): First derivatives of \( J(x) \).
+- **Hessian Matrix** (\( H(x) \)): Second derivatives of \( J(x) \), symmetric due to mixed partial derivative equality.
+
+---
+
+## Optimization Methods
+
+### 1. Gradient Descent
+Moves in the direction of the steepest descent:
+\[
+\Delta x = -\alpha \nabla J
+\]
+where \( \alpha \) is a step size, typically tuned empirically.
+
+### 2. Newton's Method
+Uses second-order Taylor expansion, focusing on the quadratic terms:
+\[
+\Delta x = -H^{-1} \nabla J
+\]
+Efficient for problems where \( H \) is easily invertible.
+
+### 3. Gauss-Newton Method
+Designed for least-squares problems, where the cost function \( J \) is the sum of squared terms:
+\[
+J = \sum_{j=1}^M f_j^2(x)
+\]
+Gradient and Hessian approximations:
+\[
+\nabla J = 2 \nabla^T f(x) f(x), \quad H \approx 2 \nabla^T f(x) \nabla f(x)
+\]
+Iteration:
+\[
+\Delta x = -\left( \nabla^T f(x) \nabla f(x) \right)^{-1} \nabla^T f(x) f(x)
+\]
+
+---
+
+## Levenberg-Marquardt Algorithm
+Combines gradient and Gauss-Newton methods. The update step:
+\[
+\Delta x = \left( \nabla^T f(x) \nabla f(x) + \alpha I \right)^{-1} \nabla^T f(x) f(x)
+\]
+- \( \alpha = 0 \): Gauss-Newton method.
+- \( \alpha \) large: Gradient descent dominates.
+
+---
+
+Numerical optimization is a powerful tool for solving complex problems iteratively, leveraging gradients and Hessians for efficient convergence.
+
+
+
 ---
 
 ## 4. Bundle Adjustment
