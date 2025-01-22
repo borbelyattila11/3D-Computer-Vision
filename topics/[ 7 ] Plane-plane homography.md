@@ -2,7 +2,7 @@
 
 A **homography** is a projective transformation that relates two views of the same planar surface. In the context of computer vision and image processing, a homography is represented as a \(3 \times 3\) matrix \(H\) and relates the points \((x, y)\) on one plane to points \((x', y')\) on another plane through the equation:
 
-\[
+$$
 \begin{bmatrix}
 x' \\
 y' \\
@@ -15,7 +15,7 @@ x \\
 y \\
 1
 \end{bmatrix}
-\]
+$$
 
 where \(H\) is a 3x3 matrix defined up to a scale factor. It can be estimated if you have at least four pairs of corresponding points between the two planes.
 
