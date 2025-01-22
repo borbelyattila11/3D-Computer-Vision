@@ -38,7 +38,7 @@ Identify matching points $p_1 = (u_1, v_1)$ and $p_2 = (u_2, v_2)$ in the two im
 
 $$
 \begin{bmatrix}
-(p_1 × P_1)
+(p_1 × P_1) \\
 (p_2 × P_2)
 \end{bmatrix}
 ⋅ X = 0
