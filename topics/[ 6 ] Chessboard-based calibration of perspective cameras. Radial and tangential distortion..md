@@ -52,4 +52,8 @@ K = \begin{bmatrix}
 f_x & 0 & c_x \\
 0 & f_y & c_y \\
 0 & 0 & 1
-\end{bmatrix}$$
+\end{bmatrix}
+$$
+
+- **Distortion coefficients:** $[k_1, k_2, p_1, p_2, k_3]$
+- **Rotation and translation vectors** for each image
