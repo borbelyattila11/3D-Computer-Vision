@@ -20,8 +20,8 @@ where $$H$$ is a $$3 \times 3$$ matrix defined up to a scale factor. It can be e
 ## Steps to Compute Plane-to-Plane Homography
 1. **Collect Point Correspondences**: Identify at least four points on the plane in one image and their corresponding locations in the other image.
 2. **Construct a Linear System**: Use the point correspondences to set up a system of equations derived from the homography formula.
-3. **Solve for \(H\)**: Use methods like Singular Value Decomposition (SVD) to solve the system and estimate \(H\).
-4. **Apply Transformation**: Use the computed \(H\) matrix to map points or images from one plane to the other.
+3. **Solve for $$H$$**: Use methods like Singular Value Decomposition (SVD) to solve the system and estimate $$H$$.
+4. **Apply Transformation**: Use the computed $$H$$ matrix to map points or images from one plane to the other.
 
 # Panoramic Images Using Homographies
 
@@ -31,7 +31,7 @@ A **panorama** is created by stitching multiple overlapping images together. Whe
 1. **Image Acquisition**: Capture a series of overlapping images with a consistent rotation.
 2. **Feature Detection and Matching**: Identify keypoints in the overlapping regions (e.g., using SIFT, ORB, or SURF) and find correspondences.
 3. **Estimate Homography**:
-   - Use RANSAC to robustly estimate the homography \(H\) between pairs of images.
+   - Use RANSAC to robustly estimate the homography $$H$$ between pairs of images.
 4. **Warp Images**:
    - Transform images to a common coordinate frame using the homography matrices.
    - Use backward mapping to ensure proper interpolation.
