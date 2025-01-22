@@ -30,3 +30,23 @@ $f(x) = \frac{1}{2} \sum{[r_i(x)]^2}$
 2. Update:
 
 $x_{k+1} = x_k - (J^TJ)^{-1}J^Tr$
+
+#### 4. Levenberg-Marquardt Algorithm
+The Levenberg-Marquardt algorithm (LMA) combines the Gauss-Newton method with gradient descent to improve convergence in non-linear least squares problems.
+
+$x_{k+1} = x_k - (J^TJ + λI)^{-1}J^Tr$
+
+Where:
+- $λ$ is a damping factor
+- $I$ is the identity matrix
+
+If the update decreases the error, reduce $λ$ (move towards Gauss-Newton), but if the error increases, increase $λ$ (move towards gradient descent)
+
+#### 5. Approximation by a Taylor Series
+The Taylor series approximates a function $𝑓(𝑥)$ around a point $𝑥0$ using its derivatives. It's fundamental in deriving methods like Newton's and Gauss-Newton.
+
+$f(x) ≈ f(x_0) + ∇f(x_0)^T(x - x_0) + \frac{1}{2}(x - x_0)^TH(x - x_0)$
+
+Where:
+- $∇f(x_0)$ is the gradient
+- $H$ is the Hessian matrix
