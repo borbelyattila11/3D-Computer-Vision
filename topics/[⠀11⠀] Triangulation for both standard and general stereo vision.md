@@ -35,6 +35,7 @@ Where $K_1, K_2$ are the intrinsic matrices, $R$ is the rotation and $T$ is the 
 Identify matching points $p_1 = (u_1, v_1)$ and $p_2 = (u_2, v_2)$ in the two images.
 
 3. **Construct Triangulation Equation**
+
 $$
 \begin{bmatrix}
 (p_1 × P_1)
