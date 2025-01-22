@@ -17,13 +17,13 @@ where:
 - \( (u_0, v_0) \) is the principal point.
 
 The intrinsic camera matrix \( K \) is:
-\[
+$
 K = \begin{bmatrix}
 f k_u & 0 & u_0 \\
 0 & f k_v & v_0 \\
 0 & 0 & 1
 \end{bmatrix}
-\]
+$
 
 ### Orthogonal Projection
 In **orthogonal projection**, parallel rays are assumed:
