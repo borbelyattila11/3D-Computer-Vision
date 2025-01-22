@@ -16,6 +16,9 @@ $$
 \end{bmatrix} $$
 
 where $$H$$ is a $$3 \times 3$$ matrix defined up to a scale factor. It can be estimated if you have at least four pairs of corresponding points between the two planes.
+-Homography estimation requires solving a system of linear equations for the unknown homography matrix 𝐻
+-If there are more than four point correspondences, the system becomes overdetermined, meaning there are more equations than unknowns.
+SVD is ideal for finding the best least-squares solution in such cases.
 
 ## Steps to Compute Plane-to-Plane Homography
 1. **Collect Point Correspondences**: Identify at least four points on the plane in one image and their corresponding locations in the other image.
