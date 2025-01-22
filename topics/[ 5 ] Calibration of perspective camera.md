@@ -3,3 +3,5 @@ To calibrate a perspective camera using a spatial calibration object, the goal i
 
 #### Steps
 1. **Setup Calibration Object:** Use a known 3D calibration object (checkboard pattern, planar grid, 3D object with known geometry)
+2. **Capture Images:** Take multiple images of the calibration object from different angles and distances.
+3. **Detect 2D Points:**
