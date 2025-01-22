@@ -25,3 +25,15 @@ $$
 6. **Decomposition of the Projection Matrix:** The projection matrix P can be decomposed into:
 
 $P = K * [R | t]$
+
+Where:
+- $K$ is the intrinsic matrix, containing the focal lengths and principal point.
+- $R$ is the rotation matrix, representing the camera's orientation in world space.
+- $t$ is the translation vector, representing the camera's position in world space.
+
+To extract K, R and t, perform the following steps:
+- Decompose the matrix $P$ using QR decomposition to isolate the intrinsic matrix K.
+- The matrix $R$ is derived by adjusting the scaled rotation portion, and $t$ can be determined from the translation part.
+
+7. **Refinement with Non-Linear Optimization:** After the initial estimation, refine the parameters using non-linear optimization techniques, minimizing the reprojection error.
+8. **Calibration Quality:** Evaluate the calibration quality by checking the reprojection error for all points.
