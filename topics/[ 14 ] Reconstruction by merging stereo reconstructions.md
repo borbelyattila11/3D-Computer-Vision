@@ -33,7 +33,7 @@ $$q_i = s R p_i + t$$
 
 $$H = \sum_{i=1}^{N} q_i' p_i'^T$$
 
-     The optimal rotation is given by:
+The optimal rotation is given by:
 
 $$R = V U^T \quad \text{where} \quad H = USV^T$$
 
