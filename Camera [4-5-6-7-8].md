@@ -114,12 +114,12 @@ A h = 0
 
 ### Data Normalization
 Normalization centers and scales points:
-\[
+$\[
 T = \begin{bmatrix}
 s & 0 & -s \mu_x \\
 0 & s & -s \mu_y \\
 0 & 0 & 1
 \end{bmatrix}
-\]
+\]$
 
 Normalization improves stability for homography estimation.
