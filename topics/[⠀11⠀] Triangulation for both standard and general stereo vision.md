@@ -24,3 +24,21 @@ Where:
 
 ## General Stereo Vision
 For general stereo setups, cameras are not rectified, and their relative orientation (rotation 𝑅 and translation 𝑇) must be considered.
+
+#### Steps for Triangulation
+1. **Camera Projection Matrices**
+$P_1 = K_1[I∣0]$
+$P_2 = K_2[R∣T]$
+Where $K_1, K_2$ are the intrinsic matrices, $R$ is the rotation and $T$ is the translation vector.
+
+2. **Find Correspondence**
+Identify matching points $p_1 = (u_1, v_1)$ and $p_2 = (u_2, v_2)$ in the two images.
+
+3. **Construct Triangulation Equation**
+$$
+\begin{bmatrix}
+(p_1 × P_1)
+(p_2 × P_2)
+\end{bmatrix}
+⋅ X = 0
+$$
