@@ -14,4 +14,4 @@ $d = u_L - U_R$
 
 4. **3D Reconstruction**
 Reconstruct the 3D coordinates of the point P(X, Y, Z) in the camera coordinate system:
-$Z = \factor{f * B}{d}$
+$Z = \factorize{f * B}{d}$
