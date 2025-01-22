@@ -8,8 +8,11 @@ Homography estimation involves determining the $$3 \times 3$$ transformation mat
 2. **Data Normalization**:
 
 Elements in coefficient should be in the same order of magnitude
+
 Translation: origo should be at the center of gravity
+
 Scale: spread should be set to 2
+
    - Normalize the coordinates of the points to improve numerical stability. This involves:
      - Translating the centroid of points to the origin.
      - Scaling the points so that the average distance from the origin is $$\sqrt{2}$$.
