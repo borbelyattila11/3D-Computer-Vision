@@ -42,3 +42,8 @@ $y_distorted = y + [p_1(r^2 + 2y^2) + 2p_2xy]$
 
 Where:
 - $p_1, p_2$ are the tangential distortion coefficients
+
+## Calibration Output
+After calibration, you obtain:
+- **Camera matrix (K):**
+$$K = \begin{bmatrix} f_x & 0 & c_x \\ 0 & f_y & c_y \\ 0 & 0 & 1 \end{bmatrix}$$
