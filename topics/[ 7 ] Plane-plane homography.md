@@ -17,7 +17,7 @@ y \\
 \end{bmatrix}
 \]
 
-where \(H\) is a \(3 \times 3\) matrix defined up to a scale factor. It can be estimated if you have at least four pairs of corresponding points between the two planes.
+where \(H\) is a 3x3 matrix defined up to a scale factor. It can be estimated if you have at least four pairs of corresponding points between the two planes.
 
 ## Steps to Compute Plane-to-Plane Homography
 1. **Collect Point Correspondences**: Identify at least four points on the plane in one image and their corresponding locations in the other image.
