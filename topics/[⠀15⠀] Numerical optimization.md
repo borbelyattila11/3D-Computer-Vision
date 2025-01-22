@@ -24,3 +24,9 @@ The Gauss-Newton method is a specialized variant of Newton's method for solving 
 For a least squares problem:
 
 $f(x) = \frac{1}{2} \sum{[r_i(x)]^2}$
+
+**Steps:**
+1. Compute the Jacobian matrix **$J$** where $J_{ij} = \frac{∂r_i}{∂x_j}$
+2. Update:
+
+$x_{k+1} = x_k - (J^TJ)^{-1}J^Tr$
