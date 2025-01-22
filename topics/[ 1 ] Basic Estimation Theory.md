@@ -6,4 +6,6 @@ In many 3D vision problems, we have an overdetermined system where $m > n$, mean
 $Ax = b$
 
 Where:
-- $A ∈ R^{m × n}$ is a matrix with $m$ equations and $n$ unknonws (variables).
+- $A ∈ R^{m × n}$ is a matrix with $m$ equations and $n$ unknonws (variables)
+- $x ∈ R^n$ is the vector of unknowns that we need to solve
+- $b ∈ R^m$ is the vector of observations
