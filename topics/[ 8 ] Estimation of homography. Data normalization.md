@@ -11,7 +11,7 @@ Elements in coefficient should be in the same order of magnitude
 
 Translation: origo should be at the center of gravity
 
-Scale: spread should be set to 2
+Scale: spread should be set to $$\sqrt{2}$$
 
    - Normalize the coordinates of the points to improve numerical stability. This involves:
      - Translating the centroid of points to the origin.
