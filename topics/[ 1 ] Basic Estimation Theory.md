@@ -20,3 +20,8 @@ If linear dependence exists the system no longer has a unique solution, and in f
 
 #### Eigenvalue Problem
 Homogeneous linear systems $Ax = 0$ are closely related to the eigenvalue problem. Specifically, finding the non-trivial solutions is akin to finding the null space of $A$, which is equivivalent to solving for eigenvectors corresponding to the eigenvalue zero.
+
+To find the non-trivial solutions to $Ax = 0$ (equivalently, the eigenvectors corresponding to eigenvalue λ = 0), we perform the following steps:
+1. **Compute the determinant of A:** A matrix has an eigenvalue of zero if and only if its determinant is zero.
+2. **Solve the equation $Ax = 0$ for $x$:** This can be done by finding the null space of A using methods like Gaussian elimination or Singular Value Decomposition.
+3. **Interpret the null space:** The null space of A contains the non-trivial solutions. The dimension of the null space gives the number of linearly independent eigenvectors corresponding to $λ = 0$.
