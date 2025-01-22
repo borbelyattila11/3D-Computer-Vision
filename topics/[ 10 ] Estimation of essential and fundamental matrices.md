@@ -90,9 +90,9 @@ Z = \begin{bmatrix} 0 & 1 & 0 \\
 
 3. Possible solutions for $$R$$ and $$t$$:
 
-   $$\[
-   R_1 = UWV^T, \quad R_2 = UW^TV^T, \quad t = U[:,2]
-   \]$$
+$$\
+R_1 = UWV^T, \quad R_2 = UW^TV^T, \quad t = U[:,2]
+\$$
 
 4. Choose the solution where points are in front of both cameras.
 
