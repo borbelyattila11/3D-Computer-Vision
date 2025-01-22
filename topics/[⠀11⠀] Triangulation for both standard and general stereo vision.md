@@ -43,3 +43,5 @@ $$
 \end{bmatrix}
 ⋅ X = 0
 $$
+
+where $X = (X, Y, Z, 1)^T$ is the homogeneous 3D point, and × denotes the cross product matrix.
