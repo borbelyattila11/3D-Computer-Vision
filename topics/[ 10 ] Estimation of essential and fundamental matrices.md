@@ -31,9 +31,9 @@ where $$K_1$$ and $$K_2$$ are the intrinsic camera matrices for the two views.
 2. **Compute the Fundamental Matrix**: Use the **eight-point algorithm** or **RANSAC-based robust methods**.
 3. **Compute the Essential Matrix**: If camera intrinsics are known, compute:
 
-   $$\[
-   E = K_2^T F K_1
-   \]$$
+$$\[
+E = K_2^T F K_1
+\]$$
 
 ---
 
@@ -46,13 +46,13 @@ Normalization improves numerical stability.
 2. Scale the points so their mean distance from the origin is $$\sqrt{2}$$ for image points or $$\sqrt{3}$$ for 3D points.
 3. Apply the normalization transformation matrix:
 
-   $$\[
-   T = \begin{bmatrix}
-   s & 0 & -sx_c \\
-   0 & s & -sy_c \\
-   0 & 0 & 1
-   \end{bmatrix}
-   \]$$
+$$\
+T = \begin{bmatrix}
+s & 0 & -sx_c \\
+0 & s & -sy_c \\
+0 & 0 & 1
+\end{bmatrix}
+\$$
 
    where $$s$$ is the scaling factor and $$(x_c, y_c)$$ is the centroid.
 
@@ -66,23 +66,27 @@ To decompose the essential matrix $$E$$ into rotation $$R$$ and translation $$t$
 
 1. Compute the singular value decomposition (SVD) of $$E$$:
 
-   $$\[
-   E = U \Sigma V^T
-   \]$$
+$$\[
+E = U \Sigma V^T
+\]$$
 
    where $$\Sigma = \text{diag}(1, 1, 0)$$.
 
 2. Use the matrices:
 
-   $$\[
-   W = \begin{bmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix}
-   \]$$
+$$\
+W = \begin{bmatrix} 0 & -1 & 0 \\
+1 & 0 & 0 \\
+0 & 0 & 1 \end{bmatrix}
+\$$
    
    and
    
-   $$\[
-   Z = \begin{bmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0 \end{bmatrix}
-   \]$$
+$$\
+Z = \begin{bmatrix} 0 & 1 & 0 \\
+-1 & 0 & 0 \\ 
+0 & 0 & 0 \end{bmatrix}
+\$$
 
 3. Possible solutions for $$R$$ and $$t$$:
 
