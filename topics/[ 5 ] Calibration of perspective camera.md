@@ -20,3 +20,8 @@ $$
   Z_i \\
   1
 \end{bmatrix} $$
+
+5. **Estimation of the Projection Matrix:** Using the 2D-3D correspondence solve the projection matrix P. Each 2D point provides two equations (for $x_i$ and $y_i$) and the matrix equation can be solved using methods like Singular Value Decomposition.
+6. **Decomposition of the Projection Matrix:** The projection matrix P can be decomposed into:
+
+$P = K \dot [R | t]$
