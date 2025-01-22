@@ -7,7 +7,7 @@ This document explains key concepts in camera models, calibration techniques, an
 ## 1. Camera Models
 
 ### Perspective Camera
-The **perspective (pin-hole) camera** model is a geometric approximation of real cameras. It assumes a focal point \( C \) and an image plane \( \phi \). Each point in 3D projects through \( C \) to \( \phi \).
+The **perspective (pin-hole) camera** model is a geometric approximation of real cameras. It assumes a focal point \( C \) and an image plane \( \phi \). Each point in 3D projects through \( C \) to ($\phi$).
 
 **Projection equations**:
 $u = \frac{f k_u}{Z_c} X_c + u_0, \quad v = \frac{f k_v}{Z_c} Y_c + v_0$
