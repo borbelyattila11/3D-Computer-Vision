@@ -10,7 +10,12 @@ $$
   y' \\
   1
 \end{bmatrix}
-$$
+$$ = $$ H
+\begin{bmatrix}
+  x \\
+  y \\
+  1
+\end{bmatrix}
 
 where \(H\) is a 3x3 matrix defined up to a scale factor. It can be estimated if you have at least four pairs of corresponding points between the two planes.
 
