@@ -5,11 +5,11 @@ A **homography** is a projective transformation that relates two views of the sa
 $$\begin{bmatrix}x' \\ y' \\ 1\end{bmatrix}=H\begin{bmatrix}x \\ y \\ 1\end{bmatrix}$$
 
 $$
-A = \begin{pmatrix}
+\begin{bmatrix}
   1 & 2 & 3 \\
   4 & 5 & 6 \\
   7 & 8 & 9
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 where \(H\) is a 3x3 matrix defined up to a scale factor. It can be estimated if you have at least four pairs of corresponding points between the two planes.
