@@ -19,7 +19,7 @@ Orthographic projection is a means of representing three-dimensional objects in 
 - An orthographic camera is often described with fewer intrinsic parameters since it does not include focal length or distortion.
 
 ## Weak-Perspective Camera
-The weak-perspective camera model is an approximation of the perspective model used in cases where the objects being viewed are relatively far from the camera and the depth variation within the scene is small. This model assumes the scene is approximately planar and projects the scene as if it were observed with an orthogonal camera, but with a small scaling factor that accounts for some depth variation.
+A "weak" perspective projection uses the same principles of an orthographic projection, but requires the scaling factor to be specified, thus ensuring that closer objects appear bigger in the projection, and vice versa. The weak-perspective model thus approximates perspective projection while using a simpler model, similar to the pure (unscaled) orthographic perspective. It is a reasonable approximation when the depth of the object along the line of sight is small compared to the distance from the camera, and the field of view is small.
 
 #### Summary
 - **Perspective Camera:** Exhibits realistic perspective distortions (objects appear smaller with increasing distance).
