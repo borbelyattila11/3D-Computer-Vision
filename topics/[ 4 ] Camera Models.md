@@ -34,13 +34,18 @@ $$
 0 1 0 \\
 0 0 0
 \end{bmatrix}
+$$
 
+$$
 \begin{bmatrix}
 v_x \\
 v_y \\
 v_z
 \end{bmatrix}
 =
+$$
+
+$$
 \begin{bmatrix}
 v_x \\
 v_y \\
