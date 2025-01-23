@@ -14,7 +14,39 @@ $x = \frac{fX}{Z},$ $y = \frac{fY}{Z}$ where $f$ is the focal length, and $Z$ is
 - **principal point** is defined as the point of intersection between the optical axis and the image plane
 
 ## Orthogonal Projection (Orthographic Camera)
-In orthogonal projection, objects maintain their size regardless of distance from the camera. There is no perspective distortion, and objects that are farther away from the camera appear the same size as objects that are closer.
+Orthographic projection is a means of representing three-dimensional objects in two dimensions. In orthogonal projection, objects maintain their size regardless of distance from the camera. There is no perspective distortion, and objects that are farther away from the camera appear the same size as objects that are closer.
+
+A simple orthographic projection onto the plane $z = 0$ can be defined by the following matrix:
+
+$$
+\begin{bmatrix}
+1 0 0 \\
+0 1 0 \\
+0 0 0
+\end{bmatrix}
+$$
+
+For each point $v = (v_x, v_y, v_z)$ the transformed point P_v would be
+
+$$
+\begin{bmatrix}
+1 0 0 \\
+0 1 0 \\
+0 0 0
+\end{bmatrix}
+\begin{bmatrix}
+v_x \\
+v_y \\
+v_z
+\end{bmatrix}
+=
+
+\begin{bmatrix}
+v_x \\
+v_y \\
+0
+\end{bmatrix}
+$$
 
 ## Weak-Perspective Camera
 The weak-perspective camera model is an approximation of the perspective model used in cases where the objects being viewed are relatively far from the camera and the depth variation within the scene is small. This model assumes the scene is approximately planar and projects the scene as if it were observed with an orthogonal camera, but with a small scaling factor that accounts for some depth variation.
