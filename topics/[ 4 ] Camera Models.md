@@ -20,9 +20,9 @@ A simple orthographic projection onto the plane $z = 0$ can be defined by the fo
 
 $$
 \begin{bmatrix}
-1 0 0 \\
-0 1 0 \\
-0 0 0
+1  0  0 \\
+0  1  0 \\
+0  0  0
 \end{bmatrix}
 $$
 
@@ -34,6 +34,7 @@ $$
 0 1 0 \\
 0 0 0
 \end{bmatrix}
+
 \begin{bmatrix}
 v_x \\
 v_y \\
