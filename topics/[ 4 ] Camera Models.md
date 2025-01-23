@@ -5,7 +5,7 @@ Perspective camera is a model used to simulate the way a real-world camera captu
 
 A 3D point (X, Y, Z) in the world coordinate system is projected onto a 2D image point (x, y) using the following equations:
 
-$x = \frac{fX}{Z},$ $y = \frac{fY}{Z}$
+$x = \frac{fX}{Z},$ $y = \frac{fY}{Z}$ where $f$ is the focal length, and $Z$ is the depth of the point from the camera.
 
 ## Orthogonal Projection (Orthographic Camera)
 In orthogonal projection, objects maintain their size regardless of distance from the camera. There is no perspective distortion, and objects that are farther away from the camera appear the same size as objects that are closer.
