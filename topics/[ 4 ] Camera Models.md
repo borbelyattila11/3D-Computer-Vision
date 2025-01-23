@@ -7,6 +7,12 @@ A 3D point (X, Y, Z) in the world coordinate system is projected onto a 2D image
 
 $x = \frac{fX}{Z},$ $y = \frac{fY}{Z}$ where $f$ is the focal length, and $Z$ is the depth of the point from the camera.
 
+#### Fundamental Parameters:
+- **center of projection** is the point where the pinhole aperture is located
+- **focal length** is the distance between the center of the projection and the image plane
+- **optical axis** is the line perpendicular to the image plane and passing through the center of projection
+- **principal point** is defined as the point of intersection between the optical axis and the image plane
+
 ## Orthogonal Projection (Orthographic Camera)
 In orthogonal projection, objects maintain their size regardless of distance from the camera. There is no perspective distortion, and objects that are farther away from the camera appear the same size as objects that are closer.
 
