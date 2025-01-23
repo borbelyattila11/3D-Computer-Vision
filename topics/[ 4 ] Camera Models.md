@@ -40,7 +40,6 @@ v_y \\
 v_z
 \end{bmatrix}
 =
-
 \begin{bmatrix}
 v_x \\
 v_y \\
