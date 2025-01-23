@@ -50,4 +50,4 @@ Bundle adjustment is critical in applications like:
 In practice, it significantly improves geometric consistency across views by iteratively refining the solution until minimal reprojection error is achieved.
 
 
-(Source)[https://www.youtube.com/watch?v=lmj2Jk5tl60]
+[Source](https://www.youtube.com/watch?v=lmj2Jk5tl60)
