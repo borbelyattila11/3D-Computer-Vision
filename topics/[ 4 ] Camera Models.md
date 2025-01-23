@@ -3,6 +3,10 @@
 ## Perspective Camera (pinhole camera)
 Perspective camera is a model used to simulate the way a real-world camera captures images from a 3D scene onto a 2D plane. The perspective camera assumes that light rays emanate from a 3D scene, pass through a point known as the camera center, and project onto a 2D image plane. The model creates realistic depiction of objects, where their apparent size decreases with distance, mimicking human vision.
 
+A 3D point (X, Y, Z) in the world coordinate system is projected onto a 2D image point (x, y) using the following equations:
+
+$x = \frac{fX}{Z},$ $y = \frac{fY}{Z}$
+
 ## Orthogonal Projection (Orthographic Camera)
 In orthogonal projection, objects maintain their size regardless of distance from the camera. There is no perspective distortion, and objects that are farther away from the camera appear the same size as objects that are closer.
 
